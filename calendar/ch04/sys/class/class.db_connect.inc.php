@@ -30,11 +30,13 @@ protected function __construct($db=NULL)
 		try
 		{
 			$this->db = new PDO($dsn, DB_USER, DB_PASS);
+			echo "sucess";
 		}
 		catch(Exception $e)
 		{
 			//If the DB connection fails output the error
 
+			echo "fail";
 			die( $e->getMessage() );
 		}
 	}

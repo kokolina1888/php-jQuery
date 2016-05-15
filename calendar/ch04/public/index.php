@@ -1,20 +1,35 @@
 <?php 
-//declare(strict_types=1);
-
+$page_title = "Events Calendar";
+$css_files = array('style.css', 'admin.css', 'ajax.css');
 /*
-* Include nessesary files
+* Include the header
 */
+include_once('assets/common/header.inc.php');
+?>
+<div id="content">
 
-include_once('../sys/core/init.inc.php');
-
-/*
-* Load the calendar for January
-*/
-
-$cal = new Calendar($dbo, '2016-01-01 12:00:00');
+<?php
 
 /*
 * display the calendar HTML
 */
+$cal = new Calendar($dbo, '2016-01-01 00:01:00');
 
 echo $cal->buildCalendar();
+
+?>
+</div>
+<!-- end #content -->
+<p>
+	<?php 
+
+	echo isset($_SESSION['user']) ? "Logged In" : "Logged Out!";
+	
+	?>
+</p>
+<?php 
+/*
+* Include the footer
+*/
+include_once('assets/common/footer.inc.php');
+?>
